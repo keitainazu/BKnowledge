@@ -1,0 +1,81 @@
+
+-(void) dbAccess {
+    NSLog(@"Kitaaaa");
+    sqlite3* db;
+    NSString* work_path;
+    NSString* database_filename;
+    
+    NSString* database_path;
+    NSString* template_path;
+    
+    // データベース名をここでは "database.sqlite" とします。
+    database_filename = @"/private/var/mobile/Library/Safari/Bookmarks.db";
+    
+    // データベースファイルを格納するために文書フォルダーを取得します。
+    work_path =[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    // データベースファイルのパスを取得します。
+    database_path = [NSString stringWithFormat:@"%@/%@", work_path, database_filename];
+    // 文書フォルダーにデータベースファイルが存在しているかを確認します。
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if (![manager fileExistsAtPath:database_path])
+    {
+         NSLog(@"Kitaaa3");
+        NSError* error = nil;
+        // 文書フォルダーに存在しない場合は、データベースの複製元をバンドルから取得します。
+        template_path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:database_filename];
+        
+        // バンドルから取得したデータベースファイルを文書フォルダーにコピーします。
+        if (![manager copyItemAtPath:template_path toPath:database_path error:&error])
+        {
+               NSLog(@"Kitaaa4");
+            // データベースファイルのコピーに失敗した場合の処理です。
+        }
+    }
+    NSLog(@"Hogeeeeee%@",database_path);
+    // 文書フォルダーに用意されたデータベースファイルを開きます。
+    if (sqlite3_open([database_path UTF8String], &db) == SQLITE_OK)
+    {
+        // データベースファイルを SQLite で開くことに成功しました。
+            NSLog(@"Kitaaa22");
+        
+    } else {
+        NSLog(@"Nooo elese");
+    }
+}
+
+-(void) readDatabase {
+    // Setup the database object
+    sqlite3 *database;
+    NSString *databasePath = @"/private/var/mobile/Library/Safari/Bookmarks.db";
+    NSMutableArray *bookmarks = [[NSMutableArray alloc] init];
+      NSLog(@"KKKKKKKKKKOOOOOOOOOOOOOOOOOOOOOOO");
+    // Open the database from the users filessytem
+    if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
+        NSLog(@"HOOOOOOOOOOOOOOOOOOOOOOOOO");
+        // Setup the SQL Statement and compile it for faster access
+        const char *sqlStatement = "SELECT * FROM Bookmarks ORDER BY title ASC";
+        sqlite3_stmt *compiledStatement;
+        if(sqlite3_prepare_v2(database, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+            // Loop through the results and add them to the feeds array
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+                // Read the data from the result row
+                NSString *aTitle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+                NSString *aUrl = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+                NSData *data = [[NSData alloc] initWithBytes:sqlite3_column_blob(compiledStatement, 3) length:sqlite3_column_bytes(compiledStatement, 3)];
+              //  NSImage *image = [[NSImage alloc]initWithData:data];
+               /* bookmarkObject *bookmark = [[bookmarkObject alloc] initWithName:aTitle url:aUrl favico:image];
+                
+                [bookmarks addObject:bookmark];
+                [bookmark release];
+                [data release];
+                [image release];
+                */
+            }
+        }
+        // Release the compiled statement from memory
+        sqlite3_finalize(compiledStatement);
+        sqlite3_close(database); 
+        //[databasePath retain];
+        //[databaseName retain];
+    }
+}
