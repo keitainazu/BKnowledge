@@ -22,7 +22,7 @@
 
 -(void) loginRequest:(NSMutableArray *)param {
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/loginApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/loginApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -48,7 +48,7 @@
     
     receivedData =[[NSData alloc]init];
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/selectKListApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/selectKListApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -74,7 +74,7 @@
     
     receivedData =[[NSData alloc]init];
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/selectCListApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/selectCListApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -123,7 +123,7 @@
     
     receivedData =[[NSData alloc]init];
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/selectBBSListApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/selectBBSListApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -144,7 +144,7 @@
 -(void)  registBBS:(NSString *) comment id:(NSString *)bbs_id regist_member_id:(NSString *) regist_member_id{
     
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/insertBBSApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/insertBBSApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -161,7 +161,7 @@
 -(void)  registComm:(NSString *) title comment:(NSString *)comment regist_member_id:(NSString *) regist_member_id{
     
     // 送信したいURLを作成する
-    NSURL *url = [NSURL URLWithString:@"http://fat.mods.jp/insertCommApi.php"];
+    NSURL *url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/insertCommApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     // MethodにPOSTを指定する。
@@ -178,7 +178,7 @@
 -(void)  registKnowledge:(NSString *) category layer:(NSString *)layer title:(NSString *)title url:(NSString *) url regist_member_id:(NSString *) regist_member_id{
     
     // 送信したいURLを作成する
-    NSURL *request_url = [NSURL URLWithString:@"http://fat.mods.jp/insertKnowledgeApi.php"];
+    NSURL *request_url = [NSURL URLWithString:@"https://mods-fat.ssl-lolipop.jp/insertKnowledgeApi.php"];
     // Mutableなインスタンスを作成し、インスタンスの内容を変更できるようにする
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:request_url];
     // MethodにPOSTを指定する。

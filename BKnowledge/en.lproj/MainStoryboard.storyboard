@@ -404,7 +404,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpp-hO-VMm">
-                                <rect key="frame" x="15" y="64" width="279" height="279"/>
+                                <rect key="frame" x="15" y="63.999999999999993" width="279" height="279"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="279" id="CMD-Nd-z5T"/>
@@ -612,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSy-W6-Ly4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1818" y="924"/>
+            <point key="canvasLocation" x="-1850" y="1108"/>
         </scene>
         <!--Page Search View Controller-->
         <scene sceneID="quL-FU-A1I">
@@ -647,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVL-CQ-HnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1426" y="924"/>
+            <point key="canvasLocation" x="-1434" y="1108"/>
         </scene>
         <!--PageRSS Contents View Controller-->
         <scene sceneID="0Tv-cK-bbq">
@@ -725,29 +725,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qhh-XZ-nkk">
-                                <rect key="frame" x="0.0" y="-35" width="320" height="504"/>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0j1-7S-W6c">
+                                <rect key="frame" x="0.0" y="-8" width="320" height="569"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="504" id="3cF-Wq-ctv"/>
-                                </constraints>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Qhh-XZ-nkk" firstAttribute="trailing" secondItem="dsC-Wl-GtO" secondAttribute="trailing" id="JX7-bW-Ezg"/>
-                            <constraint firstItem="Qhh-XZ-nkk" firstAttribute="top" secondItem="dsC-Wl-GtO" secondAttribute="top" constant="-35" id="Xsk-Tb-cUq"/>
-                            <constraint firstItem="Qhh-XZ-nkk" firstAttribute="leading" secondItem="dsC-Wl-GtO" secondAttribute="leading" id="tVK-64-StI"/>
-                        </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="webView" destination="Qhh-XZ-nkk" id="AaS-jz-8Tu"/>
+                        <outlet property="kWebView" destination="0j1-7S-W6c" id="4ob-7Y-Owu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GvF-4M-yBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1126" y="310"/>
+            <point key="canvasLocation" x="-1128" y="302"/>
         </scene>
         <!--Navi-->
         <scene sceneID="XnX-VV-plK">

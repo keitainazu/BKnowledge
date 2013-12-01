@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageKDetail : UIViewController <UIWebViewDelegate>
+@interface PageKDetail :UIViewController <UIWebViewDelegate>
 
 @property (strong, nonatomic) NSString *url;
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIWebView *kWebView;
 @end
